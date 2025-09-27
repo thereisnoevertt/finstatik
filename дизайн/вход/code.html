@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#7f13ec",
+            "background-light": "#f7f6f8",
+            "background-dark": "#191022",
+          },
+          fontFamily: {
+            "display": ["Manrope"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200">
+<div class="relative flex min-h-screen w-full flex-col justify-between overflow-x-hidden">
+<div class="flex flex-col">
+<div class="w-full h-64 bg-center bg-no-repeat bg-cover" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBVi07eEtmUZXgiFSjHoej3CjrC3x8PbPddpRQHiXttBu23voCm2AU4GukLAXue2dIETdMGHVzYFVQSnkcwyhBuE1ygqaNgf1pRadQzmAbEiCzcOUBrzqtyOGRWWEdbJHkTvjZyKWvomBZ35sv9Gli9Oa1-bGIbGS2mjBvk6tocSFIwbNmYmhpcdQ2yy9QxNrHob3quwnDYDqtPicZ4ELH6hJ3Lix_peDsXxDSdqLtZHIgTlJYtaafmYMwCyLL1I_JXpAk9Tyzb3hI");'></div>
+<div class="px-6 -mt-8">
+<div class="bg-background-light dark:bg-background-dark rounded-xl p-6 shadow-lg">
+<h1 class="text-2xl font-bold text-center text-gray-900 dark:text-white mb-6">Добро пожаловать в Финтастик</h1>
+<div class="space-y-4">
+<div>
+<label class="sr-only" for="email">Электронная почта</label>
+<input class="form-input w-full rounded-lg border-0 bg-primary/10 dark:bg-primary/20 focus:ring-2 focus:ring-primary h-14 p-4 placeholder:text-gray-500 dark:placeholder:text-gray-400 text-gray-900 dark:text-white" id="email" placeholder="Электронная почта" type="email"/>
+</div>
+<div>
+<label class="sr-only" for="password">Пароль</label>
+<input class="form-input w-full rounded-lg border-0 bg-primary/10 dark:bg-primary/20 focus:ring-2 focus:ring-primary h-14 p-4 placeholder:text-gray-500 dark:placeholder:text-gray-400 text-gray-900 dark:text-white" id="password" placeholder="Пароль" type="password"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="px-6 py-4">
+<div class="space-y-4">
+<button class="w-full h-14 rounded-xl bg-primary text-white font-bold text-base tracking-wide flex items-center justify-center shadow-md hover:opacity-90 transition-opacity"> Войти </button>
+<button class="w-full h-14 rounded-xl bg-primary/10 dark:bg-primary/20 text-primary dark:text-white font-bold text-base tracking-wide flex items-center justify-center shadow-md hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors"> Зарегистрироваться </button>
+</div>
+<p class="text-center text-sm text-gray-500 dark:text-gray-400 my-4">Или войдите с помощью</p>
+<div class="flex justify-center items-center space-x-4">
+<button class="flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 dark:bg-primary/20 text-primary dark:text-white hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">
+<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+<path d="M21.35,11.1H12.18V13.83H18.69C18.36,17.64 15.19,19.27 12.19,19.27C8.36,19.27 5,16.25 5,12C5,7.9 8.2,4.73 12.19,4.73C14.04,4.73 15.3,5.5 15.9,6.08L18.04,4.31C16.57,2.9 14.59,2 12.19,2C6.92,2 2.73,6.23 2.73,12C2.73,17.77 6.92,22 12.19,22C17.6,22 21.7,18.33 21.7,12.33C21.7,11.77 21.52,11.44 21.35,11.1Z"></path>
+</svg>
+</button>
+<button class="flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 dark:bg-primary/20 text-primary dark:text-white hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">
+<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+<path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"></path>
+</svg>
+</button>
+</div>
+</div>
+</div>
+
+</body></html>
