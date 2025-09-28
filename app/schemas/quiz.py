@@ -7,7 +7,7 @@ class QuizQuestionOut(BaseModel):
     question: str
     options: List[str]
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class QuizSubmit(BaseModel):

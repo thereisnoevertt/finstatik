@@ -13,4 +13,4 @@ class UserOut(BaseModel):
     email: EmailStr
     display_name: str
     class Config:
-        orm_mode = True
+        from_attributes = True

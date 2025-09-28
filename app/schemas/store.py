@@ -9,4 +9,4 @@ class StoreItemOut(BaseModel):
     price_coins: int
     metadata: Optional[dict]
     class Config:
-        orm_mode = True
+        from_attributes = True

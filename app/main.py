@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routers import auth, profile, modules, lessons, quiz, store, goals
+from app.routers import auth, profile, modules, lessons, quiz, store, goals, leaderboard, achievements
 from app.db.base import Base
 from app.db.session import engine
 
@@ -14,6 +14,8 @@ app.include_router(lessons.router)
 app.include_router(quiz.router)
 app.include_router(store.router)
 app.include_router(goals.router)
+app.include_router(achievements.router)
+app.include_router(leaderboard.router)
 
 
 @app.on_event("startup")

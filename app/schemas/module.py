@@ -9,4 +9,4 @@ class ModuleOut(BaseModel):
     description: Optional[str]
     lessons: List[LessonOut] = []
     class Config:
-        orm_mode = True
+        from_attributes = True

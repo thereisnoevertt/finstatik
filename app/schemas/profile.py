@@ -11,4 +11,4 @@ class ProfileOut(BaseModel):
     last_active: Optional[date]
     rating_points: int
     class Config:
-        orm_mode = True
+        from_attributes = True
