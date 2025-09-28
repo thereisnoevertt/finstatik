@@ -1,15 +1,17 @@
 from pydantic import BaseModel
+from datetime import datetime
 
-
-class GoalCreate(BaseModel):
+class GoalBase(BaseModel):
     title: str
     target_amount: int
 
+class GoalCreate(GoalBase):
+    pass
 
-class GoalOut(BaseModel):
+class GoalOut(GoalBase):
     id: int
-    title: str
-    target_amount: int
     current_amount: int
+    created_at: datetime
+
     class Config:
         orm_mode = True

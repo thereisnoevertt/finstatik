@@ -1,12 +1,16 @@
-from sqlalchemy import Column, BigInteger, String, Integer, ForeignKey, TIMESTAMP, func
-from app.db.base import Base
-
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
+from sqlalchemy.orm import relationship
+from datetime import datetime
+from app.db import Base
 
 class Goal(Base):
     __tablename__ = "goals"
-    id = Column(BigInteger, primary_key=True)
-    user_id = Column(BigInteger, ForeignKey("users.id", ondelete="CASCADE"))
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"))
     title = Column(String, nullable=False)
     target_amount = Column(Integer, nullable=False)
     current_amount = Column(Integer, default=0)
-    created_at = Column(TIMESTAMP(timezone=True), server_default=func.now())
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    user = relationship("User", back_populates="goals")

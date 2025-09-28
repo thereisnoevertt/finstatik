@@ -8,6 +8,10 @@ from app.models.user import User
 from app.core.security import decode_token
 from fastapi import Header
 from datetime import date
+from sqlalchemy.orm import Session
+from app.db import get_db
+from app import models, schemas
+
 
 
 router = APIRouter(prefix="/lessons", tags=["lessons"])
@@ -76,3 +80,24 @@ async def complete_content_lesson(lesson_id: int, user: User = Depends(get_curre
     profile.rating_points = (profile.rating_points or 0) + max(1, (lesson.reward_coins or 0) // 10)
     await session.commit()
     return {"ok": True, "awarded_coins": lesson.reward_coins, "new_balance": profile.coins}
+
+@router.get("/{lesson_id}", response_model=schemas.LessonOut)
+def get_lesson(lesson_id: int, db: Session = Depends(get_db)):
+    lesson = db.query(models.Lesson).filter(models.Lesson.id == lesson_id).first()
+    if not lesson:
+        raise HTTPException(404, "Lesson not found")
+    return lesson
+
+
+@router.get("/{lesson_id}/quiz")
+def get_quiz_questions(lesson_id: int, db: Session = Depends(get_db)):
+    questions = db.query(models.QuizQuestion).filter(
+        models.QuizQuestion.lesson_id == lesson_id
+    ).all()
+    return questions
+
+
+@router.post("/{lesson_id}/submit")
+def submit_quiz(lesson_id: int, answers: dict, db: Session = Depends(get_db)):
+    # TODO: проверить ответы, сохранить UserQuizAttempt
+    return {"status": "ok", "score": 10}

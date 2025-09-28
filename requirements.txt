@@ -8,3 +8,5 @@ python-jose
 pytest
 pytest-asyncio
 httpx
+pydantic[email]
+python-multipart

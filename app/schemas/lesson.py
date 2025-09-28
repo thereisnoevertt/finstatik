@@ -1,15 +1,23 @@
+# app/schemas/lesson.py
 from pydantic import BaseModel
-from typing import Optional, Dict
 
-
-class LessonOut(BaseModel):
-    id: int
-    module_id: int
+class LessonBase(BaseModel):
     title: str
-    type: str
-    reward_coins: int
-    duration_seconds: int
-    content: Optional[Dict]
-    prerequisite_id: Optional[int]
+    content: str | None = None
+    is_quiz: bool
+
+class LessonOut(LessonBase):
+    id: int
+    prerequisite_id: int | None
+
+    class Config:
+        orm_mode = True
+
+class ModuleOut(BaseModel):
+    id: int
+    title: str
+    description: str | None
+    lessons: list[LessonOut] = []
+
     class Config:
         orm_mode = True

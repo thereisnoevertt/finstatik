@@ -1,20 +1,26 @@
-from sqlalchemy import Column, BigInteger, String, Integer, ForeignKey, JSON, Text
+from sqlalchemy import Column, Integer, String, ForeignKey, Boolean, Text
 from sqlalchemy.orm import relationship
-from app.db.base import Base
+from app.db import Base
+
+class Module(Base):
+    __tablename__ = "modules"
+
+    id = Column(Integer, primary_key=True, index=True)
+    title = Column(String, nullable=False)
+    description = Column(Text)
+
+    lessons = relationship("Lesson", back_populates="module")
 
 
 class Lesson(Base):
     __tablename__ = "lessons"
-    id = Column(BigInteger, primary_key=True)
-    module_id = Column(BigInteger, ForeignKey("modules.id", ondelete="CASCADE"))
-    title = Column(String, nullable=False)
-    content = Column(JSON, nullable=True) # for content lessons
-    type = Column(String, default="content") # content | quiz
-    prerequisite_id = Column(BigInteger, ForeignKey("lessons.id"), nullable=True)
-    reward_coins = Column(Integer, default=10)
-    duration_seconds = Column(Integer, default=300)
-    sort_order = Column(Integer, default=0)
 
+    id = Column(Integer, primary_key=True, index=True)
+    module_id = Column(Integer, ForeignKey("modules.id"))
+    title = Column(String, nullable=False)
+    content = Column(Text)               # текст теоретического урока
+    is_quiz = Column(Boolean, default=False)
+    prerequisite_id = Column(Integer, ForeignKey("lessons.id"), nullable=True)
 
     module = relationship("Module", back_populates="lessons")
-    quiz_questions = relationship("QuizQuestion", back_populates="lesson")
+    prerequisite = relationship("Lesson", remote_side=[id])
