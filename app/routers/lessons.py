@@ -8,7 +8,6 @@ from app.models.user import User
 from app.schemas.lesson import LessonOut
 from app.core.security import decode_token
 from fastapi import Header
-from datetime import date
 from datetime import date, timedelta
 
 router = APIRouter(prefix="/lessons", tags=["lessons"])

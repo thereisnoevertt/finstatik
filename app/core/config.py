@@ -2,7 +2,7 @@ import os
 
 
 class Settings:
-    PROJECT_NAME: str = "Fintastic"
+    PROJECT_NAME: str = "Finstatic"
     DATABASE_URL: str = os.getenv(
     "DATABASE_URL",
     "postgresql+asyncpg://fintastic:fintastic_pass@localhost:5432/fintastic_db"

@@ -14,3 +14,4 @@ class Goal(Base):
     created_at = Column(DateTime, default=datetime.utcnow)
 
     user = relationship("User", back_populates="goals")
+    

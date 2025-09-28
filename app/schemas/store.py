@@ -7,6 +7,6 @@ class StoreItemOut(BaseModel):
     key: str
     title: str
     price_coins: int
-    metadata: Optional[dict]
+    item_metadata: Optional[dict]
     class Config:
         from_attributes = True
