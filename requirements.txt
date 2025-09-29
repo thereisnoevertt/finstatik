@@ -12,3 +12,5 @@ httpx
 python-dateutil
 pydantic[email]>=2.0.0
 python-multipart
+aiofiles
+aiosqlite
